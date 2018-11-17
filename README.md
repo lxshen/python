@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
 **Table of Contents**
 
@@ -33,22 +33,6 @@ __del__()是类的析构函数，是python垃圾回收机制的实际应用，�
 # Nginx服务器
 ## 什么是nginx
 
-=======
-<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
-**Table of Contents**
-         
-* [Nginx服务器](#nginx服务器)
-	* [什么是Nginx?](#什么是nginx)
-	* [负载均衡](#负载均衡)
-* [算法](#算法)
-	* [布隆去重](#1-布隆去重)
-     
-<!-- markdown-toc end -->
-      
-# Nginx服务器
-## 什么是nginx
-
->>>>>>> f41c9a8629a38c23878066ccec18c747b39d8794
 nginx是一个高性能的WEB和方向代理服务器，正向代理：用户去访问一个代理服务器，这个代理服务器去帮我们访问我们访问不了的网站内容
     负载均衡：负载均衡是多台服务器以对称的方式组成一个服务器集合，每台服务器都具有等价的地位，都可以单独对外提供服务而无须其它服务器的辅助。
     通过某种负载分担技术，将外部发送来的请求按照事先设定分配算法分配到对称结构中的某一台服务器上，而接收到请求的服务器独立地回应客户的请求
@@ -66,7 +50,6 @@ nginx是一个高性能的WEB和方向代理服务器，正向代理：用户去
 
 nginx本身不支持url_hash的，如果需要使用这种调度算法，必须安装nginx的hash软件包
 
-<<<<<<< HEAD
 
 # 算法
 ## 1、布隆去重
@@ -143,4 +126,4 @@ nginx本身不支持url_hash的，如果需要使用这种调度算法，必须�
 </div>
 <pre class="hljs" name="code" onclick="hljs.copyCode(event)"><code class="hljs vbscript"><ol class="hljs-ln" style="width:2057px"><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">A,B 两个文件，各存放 <span class="hljs-number">50</span> 亿条 URL，每条 URL 占用 <span class="hljs-number">64</span> 字节，内存限制是 <span class="hljs-number">4</span>G，让你找出 A,B 文件共同的 URL。如果是三个乃至 n 个文件呢？</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> </div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">分析 ：如果允许有一定的错误率，可以使用 Bloom <span class="hljs-built_in">filter</span>，<span class="hljs-number">4</span>G 内存大概可以表示 <span class="hljs-number">340</span> 亿 bit。将其中一个文件中的 url 使用 Bloom <span class="hljs-built_in">filter</span> 映射为这 <span class="hljs-number">340</span> 亿 bit，然后挨个读取另外一个文件的 url，检查是否与 Bloom <span class="hljs-built_in">filter</span>，如果是，那么该 url 应该是共同的 url（注意会有一定的错误率）。”</div></div></li></ol></code><div class="hljs-button" data-title="复制"></div></pre>
             </div>
->>>>>>> f41c9a8629a38c23878066ccec18c747b39d8794
+
