@@ -1,6 +1,10 @@
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
 **Table of Contents**
-         
+
+* [面向对象](#面向对象)
+	* [一些特殊方法](#特殊方法)
+* [Xpath使用](#xpath使用)   
+	* [用法](#用法)
 * [Nginx服务器](#nginx服务器)
 	* [什么是Nginx?](#什么是nginx)
 	* [负载均衡](#负载均衡)
@@ -8,7 +12,23 @@
 	* [布隆](#1-布隆去重)
      
 <!-- markdown-toc end -->
-      
+ 
+# 面向对象 
+## 特殊方法
+   
+    类中__new__ 、__init__ 、__call__、 __del__ 区别
+```
+__new__()方法是一个静态方法，在类准备将自身实例化时调用，并返回一个cls实例。
+__new__()方法始终都是类的静态方法，即使没有被加上静态方法装饰器。是因为无论怎样重写类的__new__()函数，追溯到源头都是继承自object的__new__()函数，而object类中定义的__new__()函数就被定义成了静态函数，被@stacitmethod修饰
+__init__ 是一个实例方法，用来初始化类的属性。
+
+__call__()方法能够让类的实例对象，像函数一样被调用
+
+__del__()是类的析构函数，是python垃圾回收机制的实际应用，当类的所有引用都被删除后，该类就会被系统从内存中删除，注意是所有的引用都被删除哦，而不是每一次删除；
+```
+# Xpath
+## xpath使用
+
 # Nginx服务器
 ## 什么是nginx
 
@@ -61,3 +81,14 @@ nginx本身不支持url_hash的，如果需要使用这种调度算法，必须�
 </div>
 <pre class="hljs" name="code" onclick="hljs.copyCode(event)"><code class="hljs vbscript"><ol class="hljs-ln" style="width:2057px"><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">A,B 两个文件，各存放 <span class="hljs-number">50</span> 亿条 URL，每条 URL 占用 <span class="hljs-number">64</span> 字节，内存限制是 <span class="hljs-number">4</span>G，让你找出 A,B 文件共同的 URL。如果是三个乃至 n 个文件呢？</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> </div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">分析 ：如果允许有一定的错误率，可以使用 Bloom <span class="hljs-built_in">filter</span>，<span class="hljs-number">4</span>G 内存大概可以表示 <span class="hljs-number">340</span> 亿 bit。将其中一个文件中的 url 使用 Bloom <span class="hljs-built_in">filter</span> 映射为这 <span class="hljs-number">340</span> 亿 bit，然后挨个读取另外一个文件的 url，检查是否与 Bloom <span class="hljs-built_in">filter</span>，如果是，那么该 url 应该是共同的 url（注意会有一定的错误率）。”</div></div></li></ol></code><div class="hljs-button" data-title="复制"></div></pre>
             </div>
+
+
+
+当前节点的开始标签之前的所有节点 /preceding
+当前节点的结束标签之后的所有节点 /following
+当前节点之后的兄弟节点 /following-sibling::*
+当前节点之前的兄弟节点 /preceding-sibling::*
+当前节点的所有后代（子，孙） /descendant
+包含指定文本：span[contains(text(), "指定文本内容")]
+取最后一个子元素 //div[@class='box-nav']/a[last()]
+
